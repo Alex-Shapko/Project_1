@@ -28,5 +28,6 @@ public class HelloServlet extends HttpServlet {
         req.setAttribute("list", list);
 
         req.getRequestDispatcher("/index.jsp").forward(req, resp);
+
     }
 }

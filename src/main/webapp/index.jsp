@@ -20,8 +20,9 @@
         <h1>${myName}</h1>
 
 
-        <c:set var="GuitarsView" value="<%=x%>"/>
-        <h1>${GuitarsView}</h1>
+        <%Main.initData();%>
+        Гитара:<%=Main.getGuitarById(1).getName()%>
+
 
         <c:set var="X1" value="<%=x%>"/>
 
@@ -54,5 +55,6 @@
         <c:forEach var="num" items="${list}">
             <p>${num}</p>
         </c:forEach>
+
     </body>
 </html>

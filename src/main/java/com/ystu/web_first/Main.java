@@ -37,7 +37,7 @@ public class Main {
 
         customers.add(new Customer(1,"Артем Кузин",23));
 
-        guitars.add(new Guitar(1,"Ipiphone LP-100","Black",20000, GuitarType.Electric_guitar));
+        guitars.add(new Guitar(1,"Epiphone LP-100","Black",20000, GuitarType.Electric_guitar));
         guitars.add(new Guitar(2,"Fender Stratocaster","White",60000, GuitarType.Electric_guitar));
         guitars.add(new Guitar(3,"Fender Precision","Red",63000, GuitarType.Bass));
         guitars.add(new Guitar(4,"Takamine","Sunburst",40000, GuitarType.Acoustic));

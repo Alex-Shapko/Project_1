@@ -11,8 +11,27 @@ public class Main {
     static ArrayList<Employee> employees = new ArrayList<Employee>();
     static ArrayList<Order> orders = new ArrayList<Order>();
 
-
     public static void main(String[] args)
+    {
+      initData();
+
+    }
+
+
+
+   //получить гитару по номеру
+    public static Guitar getGuitarById(long id) {
+        Guitar current = null;
+        for (Guitar guitar : guitars){
+            if (guitar.getId() == id){
+                current = guitar;
+                break;
+            }
+        }
+        return current;
+    }
+
+    public static void initData()
     {
         employees.add(new Employee(1,"Шапко Алексей",22));
 
@@ -24,7 +43,7 @@ public class Main {
         guitars.add(new Guitar(4,"Takamine","Sunburst",40000, GuitarType.Acoustic));
 
         orders.add(new Order(1,1,1,new long[]{1}));
-
     }
+
 
 }

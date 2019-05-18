@@ -6,10 +6,10 @@ import java.util.ArrayList;
 
 public class Main {
 
-    static ArrayList<Guitar> guitars = new ArrayList<>();
-    static ArrayList<Customer> customers = new ArrayList<>();
-    static ArrayList<Employee> employees = new ArrayList<>();
-    static ArrayList<Order> orders = new ArrayList<>();
+    static ArrayList<Guitar> guitars = new ArrayList<Guitar>();
+    static ArrayList<Customer> customers = new ArrayList<Customer>();
+    static ArrayList<Employee> employees = new ArrayList<Employee>();
+    static ArrayList<Order> orders = new ArrayList<Order>();
 
 
     public static void main(String[] args)

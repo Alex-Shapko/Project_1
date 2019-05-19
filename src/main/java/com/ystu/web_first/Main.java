@@ -17,6 +17,10 @@ public class Main {
 
     }
 
+    public static void setOrders(ArrayList<Order> orders) {
+        Main.orders = orders;
+    }
+
     public static ArrayList<Guitar> getGuitars() {
         return guitars;
     }

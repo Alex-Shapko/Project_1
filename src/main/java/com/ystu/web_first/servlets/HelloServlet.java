@@ -29,6 +29,17 @@ public class HelloServlet extends HttpServlet {
         req.setAttribute("list", list);
 
         req.getRequestDispatcher("/index.jsp").forward(req, resp);
-
     }
+
+
+   /* @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        resp.setContentType("text/html");
+        req.setAttribute("todo", "10");
+
+        List list = context.getBean(Main.getGuitars().getClass());
+        req.setAttribute("list", list);
+
+        req.getRequestDispatcher("/index.jsp").forward(req, resp);
+    }*/
 }

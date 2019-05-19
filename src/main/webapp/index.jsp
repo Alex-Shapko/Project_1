@@ -11,6 +11,7 @@
         <h2>Hello World!</h2>
 
         <%! private int x = 0;%>
+        <%! private int ig = 0;%>
         <%! private int g = 0;%>
 
         Число обращений к странице: <%= ++x %>
@@ -24,23 +25,93 @@
         <%guitarsView = Main.getGuitars();%>
         <%g=guitarsView.size();%>
 
-
-
         Гитара:<%=Main.getGuitarById(1).getName()%>
 
         <h1>Список гитар:</h1>
 
         <% for (int i=1; i<=g; i++) {%>
-        <% ((List)request.getAttribute("list")).add (Main.getGuitarById(i).getName()); %>
+        <% ((List)request.getAttribute("list")).add (Main.getGuitarById(i)); %>
         <%}%>
 
-        <c:forEach items="${list}" var="item">
-            ${item}<br>
-        </c:forEach>
+        <table>
+            <!-- here should go some titles... -->
+            <col width="150" valign="top">
+            <col width="100" valign="top">
+            <col width="100" valign="top">
+            <col width="100" valign="top">
+            <col width="100" valign="top">
+            <tr>
+                <th>Наименование</th>
+                <th>Цвет</th>
+                <th>Цена</th>
+                <th>Тип</th>
+                <th>Купить</th>
+            </tr>
+            <c:forEach items="${list}" var="item">
+                <% ++ig; %>
+                <tr>
+                    <td align="center">
+                        ${item.name}
+                    </td>
+                    <td align="center">
+                        ${item.color}
+                    </td>
+                    <td align="center">
+                        ${item.price}
+                    </td>
+                    <td align="center">
+                        ${item.type}
+                    </td>
+                    <td align="center">
+                        <form name="myform" onsubmit="return OnSubmitForm();">
+                            <input type="button" value=<%=ig%> name="button" onClick='submitForm(this)' >
+                        </form>
+                    </td>
+                </tr>
+            </c:forEach>
+        </table>
+
+        <% ((List)request.getAttribute("list")).clear(); %>
+        <% ig=0; %>
+
+        <script type="text/javascript">
+            function submitForm(x)
+            {
+                for (var j=1; j<=<%=g%>; j++){
+                    if(x.value == 2) {
+                        <% ig=4; %>
+                    }
+                    if(x.value == 1) {
+                        <% ig=0; %>
+                    }
+                }
+
+
+                if(document.pressed == 'Insert')
+                {
+                    document.myform.action ="Approve/insertform.jsp";
+                }
+                else
+                if(document.pressed == 'Delete')
+                {
+                    document.myform.action ="Approve/deleteform.jsp";
+                }
+                else
+                if(document.pressed == 'Update')
+                {
+                    document.myform.action="Approve/modifyform.jsp"
+                }
+                return true;
+            }
+        </script>
+
+
+
+
+        <h1>Корзина:</h1>
+
 
         <c:set var="X1" value="<%=x%>"/>
-
-
         <c:if test="${X1 > 10}">
             <p>True<p>
         </c:if>

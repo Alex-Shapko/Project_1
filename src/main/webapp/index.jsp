@@ -11,8 +11,7 @@
         <h2>Hello World!</h2>
 
         <%! private int x = 0;%>
-
-        <%--! =Main.getGuitars(); --%>
+        <%! private int g = 0;%>
 
         Число обращений к странице: <%= ++x %>
 
@@ -21,8 +20,23 @@
 
 
         <%Main.initData();%>
+        <%! ArrayList<Guitar> guitarsView = new ArrayList<Guitar>();%>
+        <%guitarsView = Main.getGuitars();%>
+        <%g=guitarsView.size();%>
+
+
+
         Гитара:<%=Main.getGuitarById(1).getName()%>
 
+        <h1>Список гитар:</h1>
+
+        <% for (int i=1; i<=g; i++) {%>
+        <% ((List)request.getAttribute("list")).add (Main.getGuitarById(i).getName()); %>
+        <%}%>
+
+        <c:forEach items="${list}" var="item">
+            ${item}<br>
+        </c:forEach>
 
         <c:set var="X1" value="<%=x%>"/>
 
@@ -35,7 +49,10 @@
         </c:if>
 
         <br>
-            <% ((List)request.getAttribute("list")).add(new Date()); %>
+            <%-- ((List)request.getAttribute("list")).add(new Date()); %>
+            <% ((List)request.getAttribute("list")).add (Main.getGuitarById(1).getName()); --%>
+
+
 
         <c:set var="num" scope="session" value="10"/>
         <c:choose>

@@ -17,9 +17,20 @@ public class Main {
 
     }
 
+    public static ArrayList<Guitar> getGuitars() {
+        return guitars;
+    }
 
+    /*public static Guitar getGuitars2() {
+        Guitar current = null;
+        for (Guitar guitar: guitars) {
+            current = guitar;
+            break;
+        }
+        return current;
+    }*/
 
-   //получить гитару по номеру
+    //получить гитару по номеру
     public static Guitar getGuitarById(long id) {
         Guitar current = null;
         for (Guitar guitar : guitars){

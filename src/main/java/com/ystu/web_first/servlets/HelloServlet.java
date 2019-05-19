@@ -1,5 +1,6 @@
 package com.ystu.web_first.servlets;
 
+import com.ystu.web_first.Main;
 import com.ystu.web_first.spring.SpringConfigContext;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
@@ -24,7 +25,7 @@ public class HelloServlet extends HttpServlet {
         resp.setContentType("text/html");
         req.setAttribute("todo", "10");
         
-        List list = context.getBean(List.class);
+        List list = context.getBean(Main.getGuitars().getClass());
         req.setAttribute("list", list);
 
         req.getRequestDispatcher("/index.jsp").forward(req, resp);

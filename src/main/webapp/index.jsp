@@ -84,10 +84,34 @@
         <% if (Main.isBuy()==true) { %>
         <%=Main.getOrderById(1).getCustomer_id()%>
         <% GtrOrd = Main.getOrderById(1).getGuitars(); %>
-
+        <table>
+            <!-- here should go some titles... -->
+            <col width="150" valign="top">
+            <col width="100" valign="top">
+            <col width="100" valign="top">
+            <col width="100" valign="top">
+            <tr>
+                <th>Наименование</th>
+                <th>Цвет</th>
+                <th>Цена</th>
+                <th>Тип</th>
         <%for (int j=0; j<GtrOrd.length; j++){ %>
-            <%=Main.getGuitarById((GtrOrd[j])).getName()%>
+            <tr>
+                <td align="center">
+                    <%=Main.getGuitarById((GtrOrd[j])).getName()%>
+                </td>
+                <td align="center">
+                    <%=Main.getGuitarById((GtrOrd[j])).getColor()%>
+                </td>
+                <td align="center">
+                    <%=Main.getGuitarById((GtrOrd[j])).getPrice()%>
+                </td>
+                <td align="center">
+                    <%=Main.getGuitarById((GtrOrd[j])).getType()%>
+                </td>
+            </tr>
         <% } %>
+        </table>
         <% } %>
 
 

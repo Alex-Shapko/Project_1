@@ -10,11 +10,20 @@ public class Main {
     static ArrayList<Customer> customers = new ArrayList<Customer>();
     static ArrayList<Employee> employees = new ArrayList<Employee>();
     static ArrayList<Order> orders = new ArrayList<Order>();
+    static boolean Buy;
 
     public static void main(String[] args)
     {
       initData();
 
+    }
+
+    public static boolean isBuy() {
+        return Buy;
+    }
+
+    public static void setBuy(boolean buy) {
+        Buy = buy;
     }
 
     public static void setOrders(ArrayList<Order> orders) {

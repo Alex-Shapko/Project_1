@@ -26,11 +26,12 @@ public class HelloServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         resp.setContentType("text/html");
         //req.setAttribute("todo", "10");
-        
+
         List list = context.getBean(List.class);
         req.setAttribute("list", list);
-
+        Main.setBuy(false);
         req.getRequestDispatcher("/index.jsp").forward(req, resp);
+
     }
 
 
@@ -58,8 +59,7 @@ public class HelloServlet extends HttpServlet {
 
         or.add(new Order(1,12,12,new long[]{Long.parseLong(name)}));
         Main.setOrders(or);
-
-
+        Main.setBuy(true);
         req.getRequestDispatcher("/index.jsp").forward(req, resp);
     }
 

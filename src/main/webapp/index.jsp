@@ -14,7 +14,7 @@
         <%! private int x = 0;%>
         <%! private int ig = 0;%>
         <%! private int g = 0;%>
-        <%! private long [] GtrOrd;%>
+        <%! private List<Long> GtrOrd;%>
         <%--! private boolean open = false;--%>
         <%--! private boolean buy = false;--%>
 
@@ -23,19 +23,21 @@
         <c:set var="myName" value="Alex"/>
         <h1>${myName}</h1>
 
-        <%Main.initData();%>
+        <%--Main.initData();--%>
         <%! ArrayList<Guitar> guitarsView = new ArrayList<Guitar>();%>
-        <%guitarsView = Main.getGuitars();%>
+        <%guitarsView = Data.getInstance().getGuitars();%>
         <%g=guitarsView.size();%>
 
-        Гитара:<%=Main.getGuitarById(1).getName()%>
+        Гитара:<%--=Data.getInstance().getGuitarById(1).getName()--%>
 
         <h1>Список гитар:</h1>
         <% ((List)request.getAttribute("list")).clear(); %>
 
         <% for (int i=1; i<=g; i++) {%>
-        <% ((List)request.getAttribute("list")).add (Main.getGuitarById(i)); %>
+        <% ((List)request.getAttribute("list")).add (Data.getInstance().getGuitarById(i)); %>
         <%}%>
+
+        <%--=((List)request.getAttribute("list"))--%>
 
         <table>
             <!-- here should go some titles... -->
@@ -81,9 +83,9 @@
 
 
         <h1>Корзина:</h1>
-        <% if (Main.isBuy()==true) { %>
-        <%=Main.getOrderById(1).getCustomer_id()%>
-        <% GtrOrd = Main.getOrderById(1).getGuitars(); %>
+        <% if (Data.getInstance().isBuy()==true) { %>
+        <%--=Data.getInstance().getOrderById(1).getCustomer_id()--%>
+        <% GtrOrd = Data.getInstance().getOrderById(1).getGuitars(); %>
         <table>
             <!-- here should go some titles... -->
             <col width="150" valign="top">
@@ -95,19 +97,19 @@
                 <th>Цвет</th>
                 <th>Цена</th>
                 <th>Тип</th>
-        <%for (int j=0; j<GtrOrd.length; j++){ %>
+        <%for (int j=0; j<GtrOrd.size(); j++){ %>
             <tr>
                 <td align="center">
-                    <%=Main.getGuitarById((GtrOrd[j])).getName()%>
+                    <%=Data.getInstance().getGuitarById(GtrOrd.get(j)).getName()%>
                 </td>
                 <td align="center">
-                    <%=Main.getGuitarById((GtrOrd[j])).getColor()%>
+                    <%=Data.getInstance().getGuitarById(GtrOrd.get(j)).getColor()%>
                 </td>
                 <td align="center">
-                    <%=Main.getGuitarById((GtrOrd[j])).getPrice()%>
+                    <%=Data.getInstance().getGuitarById(GtrOrd.get(j)).getPrice()%>
                 </td>
                 <td align="center">
-                    <%=Main.getGuitarById((GtrOrd[j])).getType()%>
+                    <%=Data.getInstance().getGuitarById(GtrOrd.get(j)).getType()%>
                 </td>
             </tr>
         <% } %>

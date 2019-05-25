@@ -1,12 +1,14 @@
 package com.ystu.web_first.Model;
 
+import java.util.List;
+
 public class Order {
     private long id;
     private long customer_id;
     private long employee_id;
-    private long[]guitars;
+    private List<Long> guitars;
 
-    public Order(long id, long customer_id, long employee_id, long[] guitars) {
+    public Order(long id, long customer_id, long employee_id, List<Long> guitars) {
         this.id = id;
         this.customer_id = customer_id;
         this.employee_id = employee_id;
@@ -37,11 +39,11 @@ public class Order {
         this.employee_id = employee_id;
     }
 
-    public long[] getGuitars() {
+    public List<Long> getGuitars() {
         return guitars;
     }
 
-    public void setGuitars(long[] guitars) {
+    public void setGuitars(List<Long> guitars) {
         this.guitars = guitars;
     }
 }

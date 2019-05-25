@@ -1,37 +1,43 @@
-package com.ystu.web_first;
+package com.ystu.web_first.Model;
 
-import com.ystu.web_first.Model.*;
+import com.ystu.web_first.Main;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class Main {
+public class Data {
+    private static Data data = null;
 
-    static ArrayList<Guitar> guitars = new ArrayList<Guitar>();
-    static ArrayList<Customer> customers = new ArrayList<Customer>();
-    static ArrayList<Employee> employees = new ArrayList<Employee>();
-    static ArrayList<Order> orders = new ArrayList<Order>();
-    static boolean Buy;
-
-    public static void main(String[] args)
-    {
-      initData();
-
+    public static Data getInstance() {
+        if(data == null) {
+            data = new Data();
+        }
+        return data;
     }
 
-    public static boolean isBuy() {
+    private Data() {
+        initData();
+    }
+
+    ArrayList<Guitar> guitars = new ArrayList<Guitar>();
+    ArrayList<Customer> customers = new ArrayList<Customer>();
+    ArrayList<Employee> employees = new ArrayList<Employee>();
+    ArrayList<Order> orders = new ArrayList<Order>();
+    boolean Buy;
+
+    public  boolean isBuy() {
         return Buy;
     }
 
-    public static void setBuy(boolean buy) {
+    public void setBuy(boolean buy) {
         Buy = buy;
     }
 
-    public static void setOrders(ArrayList<Order> orders) {
-        Main.orders = orders;
+    public  void setOrders(ArrayList<Order> orders) {
+        this.orders = orders;
     }
 
-    public static ArrayList<Guitar> getGuitars() {
+    public  ArrayList<Guitar> getGuitars() {
         return guitars;
     }
 
@@ -45,7 +51,7 @@ public class Main {
     }*/
 
     //получить гитару по номеру
-    public static Guitar getGuitarById(long id) {
+    public  Guitar getGuitarById(long id) {
         for (Guitar guitar : guitars){
             if (guitar.getId() == id){
                 return guitar;
@@ -55,7 +61,7 @@ public class Main {
     }
 
 
-    public static Order getOrderById(long id) {
+    public  Order getOrderById(long id) {
         Order current = null;
         for (Order or : orders){
             if (or.getId() == id){
@@ -66,7 +72,7 @@ public class Main {
         return current;
     }
 
-    public static void initData()
+    public void initData()
     {
         employees.add(new Employee(1,"Шапко Алексей",22));
 
@@ -79,6 +85,5 @@ public class Main {
 
         orders.add(new Order(3,1,1, Arrays.asList(1l)));
     }
-
 
 }

@@ -16,7 +16,7 @@
         <%! private int g = 0;%>
         <%! private long [] GtrOrd;%>
         <%--! private boolean open = false;--%>
-        <%! private boolean buy = false;%>
+        <%--! private boolean buy = false;--%>
 
         Число обращений к странице: <%= ++x %>
 

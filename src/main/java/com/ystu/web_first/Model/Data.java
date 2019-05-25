@@ -37,18 +37,10 @@ public class Data {
         this.orders = orders;
     }
 
+    //получить гитары
     public  ArrayList<Guitar> getGuitars() {
         return guitars;
     }
-
-    /*public static Guitar getGuitars2() {
-        Guitar current = null;
-        for (Guitar guitar: guitars) {
-            current = guitar;
-            break;
-        }
-        return current;
-    }*/
 
     //получить гитару по номеру
     public  Guitar getGuitarById(long id) {
@@ -61,7 +53,7 @@ public class Data {
     }
 
 
-    public  Order getOrderById(long id) {
+    /*public  Order getOrderById(long id) {
         Order current = null;
         for (Order or : orders){
             if (or.getId() == id){
@@ -70,6 +62,16 @@ public class Data {
             }
         }
         return current;
+    }*/
+
+    //получить заказ по номеру
+    public  Order getOrderById(long id) {
+        for (Order or : orders){
+            if (or.getId() == id){
+                return or;
+            }
+        }
+        return null;
     }
 
     public void initData()

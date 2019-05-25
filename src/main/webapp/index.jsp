@@ -15,15 +15,12 @@
         <%! private int ig = 0;%>
         <%! private int g = 0;%>
         <%! private List<Long> GtrOrd;%>
-        <%--! private boolean open = false;--%>
-        <%--! private boolean buy = false;--%>
 
         Число обращений к странице: <%= ++x %>
 
         <c:set var="myName" value="Alex"/>
         <h1>${myName}</h1>
 
-        <%--Main.initData();--%>
         <%! ArrayList<Guitar> guitarsView = new ArrayList<Guitar>();%>
         <%guitarsView = Data.getInstance().getGuitars();%>
         <%g=guitarsView.size();%>
@@ -36,8 +33,6 @@
         <% for (int i=1; i<=g; i++) {%>
         <% ((List)request.getAttribute("list")).add (Data.getInstance().getGuitarById(i)); %>
         <%}%>
-
-        <%--=((List)request.getAttribute("list"))--%>
 
         <table>
             <!-- here should go some titles... -->
@@ -80,8 +75,6 @@
         <% ((List)request.getAttribute("list")).clear(); %>
         <% ig=0; %>
 
-
-
         <h1>Корзина:</h1>
         <% if (Data.getInstance().isBuy()==true) { %>
         <%--=Data.getInstance().getOrderById(1).getCustomer_id()--%>
@@ -117,7 +110,6 @@
         <% } %>
 
 
-
         <c:set var="X1" value="<%=x%>"/>
         <c:if test="${X1 > 10}">
             <p>True<p>
@@ -128,14 +120,8 @@
 
         <br>
 
-
             <%-- ((List)request.getAttribute("list")).add(new Date()); %>
             <% ((List)request.getAttribute("list")).add (Main.getGuitarById(1).getName()); --%>
-
-
-
-
-
 
     </body>
 </html>

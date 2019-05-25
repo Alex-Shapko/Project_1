@@ -34,7 +34,6 @@ public class HelloServlet extends HttpServlet {
 
     }
 
-
    /* @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         resp.setContentType("text/html");
@@ -57,13 +56,10 @@ public class HelloServlet extends HttpServlet {
         ArrayList<Order> or = new ArrayList<Order>();
         String name = req.getParameter("button");
 
-
         ArrayIdGtr.add(Long.parseLong(name));
 
         //Long [] ArrayIdGtrLong = null;
         //ArrayIdGtrLong=ArrayIdGtr.toArray(new Long [ArrayIdGtr.size()]);
-
-
 
         or.add(new Order(1,12,12,ArrayIdGtr));
         //or.add(new Order(1,12,12,new long[]{Long.parseLong(name)}));

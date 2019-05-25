@@ -46,6 +46,18 @@ public class Main {
         return current;
     }
 
+
+    public static Order getOrderById(long id) {
+        Order current = null;
+        for (Order or : orders){
+            if (or.getId() == id){
+                current = or;
+                break;
+            }
+        }
+        return current;
+    }
+
     public static void initData()
     {
         employees.add(new Employee(1,"Шапко Алексей",22));
@@ -57,7 +69,7 @@ public class Main {
         guitars.add(new Guitar(3,"Fender Precision","Red",63000, GuitarType.Bass));
         guitars.add(new Guitar(4,"Takamine","Sunburst",40000, GuitarType.Acoustic));
 
-        orders.add(new Order(1,1,1,new long[]{1}));
+        orders.add(new Order(3,1,1,new long[]{1}));
     }
 
 

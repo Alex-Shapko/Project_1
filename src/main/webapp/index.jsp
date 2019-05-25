@@ -13,6 +13,9 @@
         <%! private int x = 0;%>
         <%! private int ig = 0;%>
         <%! private int g = 0;%>
+        <%! private long [] GtrOrd;%>
+        <%! private boolean open = false;%>
+        <%! private boolean buy = false;%>
 
         Число обращений к странице: <%= ++x %>
 
@@ -28,6 +31,7 @@
         Гитара:<%=Main.getGuitarById(1).getName()%>
 
         <h1>Список гитар:</h1>
+        <% ((List)request.getAttribute("list")).clear(); %>
 
         <% for (int i=1; i<=g; i++) {%>
         <% ((List)request.getAttribute("list")).add (Main.getGuitarById(i)); %>
@@ -63,53 +67,28 @@
                         ${item.type}
                     </td>
                     <td align="center">
-                        <form name="myform" onsubmit="return OnSubmitForm();">
-                            <input type="button" value=<%=ig%> name="button" onClick='submitForm(this)' >
+                        <form id=<%=ig%> name="BuyGtrButton" method="post">
+                            <input id="btn" type="submit" value=<%=ig%> name="button"; <% buy = true; %>/>
                         </form>
                     </td>
                 </tr>
             </c:forEach>
         </table>
 
+
         <% ((List)request.getAttribute("list")).clear(); %>
         <% ig=0; %>
 
-        <script type="text/javascript">
-            function submitForm(x)
-            {
-                for (var j=1; j<=<%=g%>; j++){
-                    if(x.value == 2) {
-                        <% ig=4; %>
-                    }
-                    if(x.value == 1) {
-                        <% ig=0; %>
-                    }
-                }
-
-
-                if(document.pressed == 'Insert')
-                {
-                    document.myform.action ="Approve/insertform.jsp";
-                }
-                else
-                if(document.pressed == 'Delete')
-                {
-                    document.myform.action ="Approve/deleteform.jsp";
-                }
-                else
-                if(document.pressed == 'Update')
-                {
-                    document.myform.action="Approve/modifyform.jsp"
-                }
-                return true;
-            }
-        </script>
-
-
-
 
         <h1>Корзина:</h1>
+        <% if (buy == true) { %>
+        <%=Main.getOrderById(1).getCustomer_id()%>
+        <% GtrOrd = Main.getOrderById(1).getGuitars(); %>
 
+        <%for (int j=0; j<GtrOrd.length; j++){ %>
+            <%=Main.getGuitarById((GtrOrd[j])).getName()%>
+        <% } %>
+        <% } %>
 
         <c:set var="X1" value="<%=x%>"/>
         <c:if test="${X1 > 10}">
@@ -120,6 +99,8 @@
         </c:if>
 
         <br>
+
+
             <%-- ((List)request.getAttribute("list")).add(new Date()); %>
             <% ((List)request.getAttribute("list")).add (Main.getGuitarById(1).getName()); --%>
 
@@ -143,6 +124,9 @@
         <c:forEach var="num" items="${list}">
             <p>${num}</p>
         </c:forEach>
+
+        <% open = true; %>
+
 
     </body>
 </html>

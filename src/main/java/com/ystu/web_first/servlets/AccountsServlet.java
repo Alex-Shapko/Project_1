@@ -1,5 +1,6 @@
 package com.ystu.web_first.servlets;
 
+import com.ystu.web_first.Model.Customer;
 import com.ystu.web_first.Model.Data;
 import com.ystu.web_first.Model.Order;
 
@@ -28,6 +29,8 @@ public class AccountsServlet extends HttpServlet {
 
         String name = req.getParameter("name");
         String pass = req.getParameter("pass");
+
+        Data.getInstance().getCustomerByLogPas(name, pass).getId();
 
         req.getRequestDispatcher("/login.jsp").forward(req, resp);
     }

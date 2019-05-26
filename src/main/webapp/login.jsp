@@ -17,6 +17,8 @@
         <%! private List<Long> GtrOrd;%>
 
         Число обращений к странице: <%= ++x %>
+        <%Data.getInstance();%>
+
 
         <form id=<%=ig%> name="LoginShop" method="post">
         <p>Логин:<input type="text" name="name" /></p>

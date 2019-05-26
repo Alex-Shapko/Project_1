@@ -28,13 +28,18 @@ public class Data {
     public  boolean isBuy() {
         return Buy;
     }
-
     public void setBuy(boolean buy) {
         Buy = buy;
     }
 
-    public  void setOrders(ArrayList<Order> orders) {
-        this.orders = orders;
+    //получить покупателя по логину и паролю
+    public  Customer getCustomerByLogPas(String log, String pass) {
+        for (Customer cusLP : customers){
+            if ((cusLP.getName() == log) ){
+                return cusLP;
+            }
+        }
+        return null;
     }
 
     //получить гитары
@@ -62,6 +67,10 @@ public class Data {
         }
         return current;
     }*/
+
+    public  void setOrders(ArrayList<Order> orders) {
+        this.orders = orders;
+    }
 
     //получить заказ по номеру
     public  Order getOrderById(long id) {

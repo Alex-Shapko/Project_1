@@ -76,9 +76,9 @@ public class Data {
 
     public void initData()
     {
-        employees.add(new Employee(1,"Шапко Алексей",22));
-
-        customers.add(new Customer(1,"Артем Кузин",23));
+        employees.add(new Employee(1,"Alex","qwerty", 22));
+        customers.add(new Customer(1,"AlexS","1234", 22));
+        customers.add(new Customer(1,"ArtemK","0987", 23));
 
         guitars.add(new Guitar(1,"Epiphone LP-100","Black",20000, GuitarType.Electric_guitar));
         guitars.add(new Guitar(2,"Fender Stratocaster","White",60000, GuitarType.Electric_guitar));

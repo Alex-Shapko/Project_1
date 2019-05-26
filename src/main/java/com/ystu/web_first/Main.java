@@ -15,7 +15,7 @@ public class Main {
 
     public static void main(String[] args)
     {
-      initData();
+      //initData();
 
     }
 
@@ -34,15 +34,6 @@ public class Main {
     public static ArrayList<Guitar> getGuitars() {
         return guitars;
     }
-
-    /*public static Guitar getGuitars2() {
-        Guitar current = null;
-        for (Guitar guitar: guitars) {
-            current = guitar;
-            break;
-        }
-        return current;
-    }*/
 
     //получить гитару по номеру
     public static Guitar getGuitarById(long id) {
@@ -66,7 +57,7 @@ public class Main {
         return current;
     }
 
-    public static void initData()
+    /*public static void initData()
     {
         employees.add(new Employee(1,"Шапко Алексей",22));
 
@@ -78,7 +69,7 @@ public class Main {
         guitars.add(new Guitar(4,"Takamine","Sunburst",40000, GuitarType.Acoustic));
 
         orders.add(new Order(3,1,1, Arrays.asList(1l)));
-    }
+    }*/
 
 
 }

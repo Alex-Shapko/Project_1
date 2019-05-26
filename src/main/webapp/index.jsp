@@ -9,8 +9,6 @@
 <html>
     <meta charset="utf-8" />
     <body>
-        <h2>Hello World!</h2>
-
         <%! private int x = 0;%>
         <%! private int ig = 0;%>
         <%! private int g = 0;%>

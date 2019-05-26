@@ -9,7 +9,7 @@
 <html>
     <meta charset="utf-8" />
     <body>
-        <h2>Hello World!</h2>
+        <h2>Авторизация</h2>
 
         <%! private int x = 0;%>
         <%! private int ig = 0;%>
@@ -18,27 +18,11 @@
 
         Число обращений к странице: <%= ++x %>
 
-        <c:set var="myName" value="Alex"/>
-        <h1>${myName}</h1>
-
         <form id=<%=ig%> name="LoginShop" method="post">
         <p>Логин:<input type="text" name="name" /></p>
         <p>Пароль:<input type="password" name="pass" /></p>
         <p><input type="submit" name="submit" value="Вход" /></p>
         </form>
-
-
-        <c:set var="X1" value="<%=x%>"/>
-        <c:if test="${X1 > 10}">
-            <p>True<p>
-        </c:if>
-        <c:if test="${X1 < 10}">
-            <p>False<p>
-        </c:if>
-
-        <br>
-
-
 
     </body>
 </html>

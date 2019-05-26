@@ -56,7 +56,7 @@ public class Data {
         }
         return null;
     }
-    
+
     public  void setOrders(ArrayList<Order> orders) {
         this.orders = orders;
     }

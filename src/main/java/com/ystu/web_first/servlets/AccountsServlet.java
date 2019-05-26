@@ -4,6 +4,9 @@ import com.ystu.web_first.Model.Customer;
 import com.ystu.web_first.Model.Data;
 import com.ystu.web_first.Model.Order;
 
+import com.ystu.web_first.spring.SpringConfigContext;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -27,12 +30,13 @@ public class AccountsServlet extends HttpServlet {
         resp.setContentType("text/html");
         req.setAttribute("todo", "10");
 
-        String name = req.getParameter("name");
+        String nameLog = req.getParameter("login");
         String pass = req.getParameter("pass");
 
-        Data.getInstance().getCustomerByLogPas(name, pass).getId();
+        long idd = Data.getInstance().getCustomerByLogPas(nameLog, pass).getId();
 
         req.getRequestDispatcher("/login.jsp").forward(req, resp);
+
     }
 
 }

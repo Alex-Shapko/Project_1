@@ -19,7 +19,7 @@ public class Main {
 
     }
 
-    public static boolean isBuy() {
+   /* public static boolean isBuy() {
         return Buy;
     }
 
@@ -55,7 +55,7 @@ public class Main {
             }
         }
         return current;
-    }
+    }*/
 
     /*public static void initData()
     {

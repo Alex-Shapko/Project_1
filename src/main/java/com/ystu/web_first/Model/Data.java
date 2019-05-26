@@ -35,7 +35,7 @@ public class Data {
     //получить покупателя по логину и паролю
     public  Customer getCustomerByLogPas(String log, String pass) {
         for (Customer cusLP : customers){
-            if ((cusLP.getName() == log) ){
+            if ((cusLP.getName() == log) && (cusLP.getPass() == pass) ){
                 return cusLP;
             }
         }
@@ -56,18 +56,7 @@ public class Data {
         }
         return null;
     }
-
-    /*public  Order getOrderById(long id) {
-        Order current = null;
-        for (Order or : orders){
-            if (or.getId() == id){
-                current = or;
-                break;
-            }
-        }
-        return current;
-    }*/
-
+    
     public  void setOrders(ArrayList<Order> orders) {
         this.orders = orders;
     }
@@ -86,7 +75,7 @@ public class Data {
     {
         employees.add(new Employee(1,"Alex","qwerty", 22));
         customers.add(new Customer(1,"AlexS","1234", 22));
-        customers.add(new Customer(1,"ArtemK","0987", 23));
+        customers.add(new Customer(2,"ArtemK","0987", 23));
 
         guitars.add(new Guitar(1,"Epiphone LP-100","Black",20000, GuitarType.Electric_guitar));
         guitars.add(new Guitar(2,"Fender Stratocaster","White",60000, GuitarType.Electric_guitar));

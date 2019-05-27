@@ -42,6 +42,17 @@ public class Data {
         return null;
     }
 
+
+    //получить покупателя по логину и паролю
+    public  boolean getLogin(String log, String pass) {
+        for (Customer cusLP : customers){
+            if ((cusLP.getName().equals(log)) && (cusLP.getPass().equals(pass))){
+                return false;
+            }
+        }
+        return true;
+    }
+
     //получить гитары
     public  ArrayList<Guitar> getGuitars() {
         return guitars;

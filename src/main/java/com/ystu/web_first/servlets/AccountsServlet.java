@@ -33,10 +33,13 @@ public class AccountsServlet extends HttpServlet {
         String nameLog = req.getParameter("login");
         String pass = req.getParameter("pass");
 
-        long idd = Data.getInstance().getCustomerByLogPas(nameLog, pass).getId();
-
-        req.getRequestDispatcher("/login.jsp").forward(req, resp);
-
+        //long idd = Data.getInstance().getCustomerByLogPas(nameLog, pass).getId();
+        if (!Data.getInstance().getLogin(nameLog, pass)) {
+            req.getRequestDispatcher("/index.jsp").forward(req, resp);
+        }
+        else {
+            req.getRequestDispatcher("/login.jsp").forward(req, resp);
+        }
     }
 
 }

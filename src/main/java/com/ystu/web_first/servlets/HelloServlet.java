@@ -36,7 +36,7 @@ public class HelloServlet extends HttpServlet {
 
    @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        //resp.setContentType("text/html");
+        resp.setContentType("text/html");
         //req.setAttribute("todo", "10");
 
         List list = context.getBean(List.class);

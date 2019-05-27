@@ -7,6 +7,8 @@ import com.ystu.web_first.Model.Order;
 import com.ystu.web_first.spring.SpringConfigContext;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -28,14 +30,21 @@ public class AccountsServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         resp.setContentType("text/html");
-        req.setAttribute("todo", "10");
+        //req.setAttribute("todo", "10");
 
         String nameLog = req.getParameter("login");
         String pass = req.getParameter("pass");
+        String forward="";
 
         //long idd = Data.getInstance().getCustomerByLogPas(nameLog, pass).getId();
         if (!Data.getInstance().getLogin(nameLog, pass)) {
-            req.getRequestDispatcher("/index.jsp").forward(req, resp);
+            //req.getRequestDispatcher("/index.jsp").forward(req, resp);
+            forward = "hello";
+            //RequestDispatcher view = req.getRequestDispatcher(forward);
+            //view.forward(req, resp);
+            //RequestDispatcher view = req.getRequestDispatcher(forward);
+            //view.include(req, resp);
+            resp.sendRedirect(forward);
         }
         else {
             req.getRequestDispatcher("/login.jsp").forward(req, resp);

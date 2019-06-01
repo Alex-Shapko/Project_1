@@ -2,13 +2,13 @@ package com.ystu.web_first.Model;
 
 
 public class SecurityContextHolder {
-    private static final ThreadLocal<Person> threadLocalScope = new  ThreadLocal<Person>();
+    private static final ThreadLocal<Customer> threadLocalScope = new  ThreadLocal<Customer>();
 
-    public final static Person getLoggedUser() {
+    public final static Customer getLoggedUser() {
         return threadLocalScope.get();
     }
 
-    public final static void setLoggedUser(Person user) {
+    public final static void setLoggedUser(Customer user) {
         threadLocalScope.set(user);
     }
 }

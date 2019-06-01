@@ -35,14 +35,13 @@ public class Data {
     //получить покупателя по логину и паролю
     public  Customer getCustomerByLogPas(String log, String pass) {
         for (Customer cusLP : customers){
-            if ((cusLP.getName() == log) && (cusLP.getPass() == pass) ){
+            if ((cusLP.getName().equals(log)) && (cusLP.getPass().equals(pass)) ){
                 return cusLP;
             }
         }
         return null;
     }
-
-
+    
     //получить покупателя по логину и паролю
     public  boolean getLogin(String log, String pass) {
         for (Customer cusLP : customers){

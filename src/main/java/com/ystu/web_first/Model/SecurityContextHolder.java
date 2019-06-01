@@ -8,6 +8,7 @@ public class SecurityContextHolder {
         return threadLocalScope.get();
     }
 
+    
     public final static void setLoggedUser(Customer user) {
         threadLocalScope.set(user);
     }

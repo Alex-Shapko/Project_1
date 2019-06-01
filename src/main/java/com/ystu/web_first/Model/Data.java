@@ -41,7 +41,7 @@ public class Data {
         }
         return null;
     }
-    
+
     //получить покупателя по логину и паролю
     public  boolean getLogin(String log, String pass) {
         for (Customer cusLP : customers){

@@ -44,13 +44,20 @@ public class HelloServlet extends HttpServlet {
 
         ArrayList<Order> or = new ArrayList<Order>();
         String name = req.getParameter("button");
+        Long id =  (Long) req.getSession().getAttribute("idUser");
+        long id2 = id;
 
         ArrayIdGtr.add(Long.parseLong(name));
 
+//        Long id = (Long) req.getSession().getAttribute("idUser");
+//        if(id != null)
+//        {
+//            req.setAttribute("IdUser", id);
+//        }
         //Long [] ArrayIdGtrLong = null;
         //ArrayIdGtrLong=ArrayIdGtr.toArray(new Long [ArrayIdGtr.size()]);
 
-        or.add(new Order(1,12,12,ArrayIdGtr));
+        or.add(new Order(1,id2,12,ArrayIdGtr));
         //or.add(new Order(1,12,12,new long[]{Long.parseLong(name)}));
         Data.getInstance().setOrders(or);
         Data.getInstance().setBuy(true);

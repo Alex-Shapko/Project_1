@@ -1,12 +1,16 @@
 package com.ystu.web_first.Model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Order {
-    private long id;
-    private long customer_id;
-    private long employee_id;
-    private List<Long> guitars;
+    private long id = 0;
+    private long customer_id =0;
+    private long employee_id = 0;
+    private List<Long> guitars = new ArrayList<Long>();
+
+    public Order() {
+    }
 
     public Order(long id, long customer_id, long employee_id, List<Long> guitars) {
         this.id = id;

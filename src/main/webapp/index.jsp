@@ -26,7 +26,12 @@
         Гитара:<%--=Data.getInstance().getGuitarById(1).getName()--%>
 
         <h1>Список гитар:</h1>
-        <% ((List)request.getAttribute("list")).clear(); %>
+         <% if (request.getAttribute("list") == null) {%>
+            <% request.setAttribute("list", new ArrayList());%>
+         <%}%>
+
+           <% ((List)request.getAttribute("list")).clear(); %>
+
 
         <% for (int i=1; i<=g; i++) {%>
         <% ((List)request.getAttribute("list")).add (Data.getInstance().getGuitarById(i)); %>
@@ -62,7 +67,7 @@
                         ${item.type}
                     </td>
                     <td align="center">
-                        <form id=<%=ig%> name="BuyGtrButton" method="post">
+                        <form id=<%=ig%> name="BuyGtrButton" method="post" action="/hello">
                             <input id="btn" type="submit" value=<%=ig%> name="button";/>
                         </form>
                     </td>
@@ -70,13 +75,16 @@
             </c:forEach>
         </table>
 
-        <% ((List)request.getAttribute("list")).clear(); %>
+        <%((List)request.getAttribute("list")).clear(); %>
         <% ig=0; %>
 
         <h1>Корзина:</h1>
-        <% if (Data.getInstance().isBuy()==true) { %>
+        <%-- if (Data.getInstance().isBuy()==true) { --%>
         <%--=Data.getInstance().getOrderById(1).getCustomer_id()--%>
-        <% GtrOrd = Data.getInstance().getOrderById(1).getGuitars(); %>
+
+        <% Long id = (Long) request.getSession().getAttribute("idUser");  %>
+
+        <% GtrOrd = Data.getInstance().getOrderByCustomer(id).getGuitars(); %>
         <table>
             <!-- here should go some titles... -->
             <col width="150" valign="top">
@@ -105,7 +113,7 @@
             </tr>
         <% } %>
         </table>
-        <% } %>
+        <%-- } --%>
 
 
         <c:set var="X1" value="<%=x%>"/>

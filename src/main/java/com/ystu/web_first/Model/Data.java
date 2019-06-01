@@ -42,7 +42,17 @@ public class Data {
         return null;
     }
 
-    //получить покупателя по логину и паролю
+    //получить id покупателя по логину и паролю
+    public  long getIdCustomerByLogPas(String log, String pass) {
+        for (Customer cusLP : customers){
+            if ((cusLP.getName().equals(log)) && (cusLP.getPass().equals(pass)) ){
+                return cusLP.getId();
+            }
+        }
+        return 0;
+    }
+
+    //правильность логина
     public  boolean getLogin(String log, String pass) {
         for (Customer cusLP : customers){
             if ((cusLP.getName().equals(log)) && (cusLP.getPass().equals(pass))){
@@ -78,8 +88,19 @@ public class Data {
                 return or;
             }
         }
-        return null;
+        return new Order();
     }
+
+    //получить заказ по номеру id прользователя
+    public  Order getOrderByCustomer(long idCust) {
+        for (Order or : orders){
+            if (or.getCustomer_id() == idCust){
+                return or;
+            }
+        }
+        return new Order();
+    }
+
 
     public void initData()
     {

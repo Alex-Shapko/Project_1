@@ -20,7 +20,7 @@
 
 
 
-        <form id=<%=ig%> name="LoginShop" method="post">
+        <form id=<%=ig%> name="LoginShop" method="get">
         <p>Логин:<input type="text" name="login" /></p>
         <p>Пароль:<input type="password" name="pass" /></p>
         <p><input type="submit" name="submit" value="Вход" /></p>

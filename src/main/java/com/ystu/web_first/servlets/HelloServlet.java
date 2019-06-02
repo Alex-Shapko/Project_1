@@ -38,8 +38,8 @@ public class HelloServlet extends HttpServlet {
         }
         else {
             //req.getSession().setAttribute("idUser",IdCust);
-            getServletContext().getRequestDispatcher("/index.jsp").forward(req,resp);
-            //req.getRequestDispatcher("/index.jsp").forward(req, resp);
+            //getServletContext().getRequestDispatcher("/index.jsp").forward(req,resp);
+            req.getRequestDispatcher("/index.jsp").forward(req, resp);
         }
     }
 

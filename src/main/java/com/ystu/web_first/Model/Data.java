@@ -23,14 +23,6 @@ public class Data {
     ArrayList<Customer> customers = new ArrayList<Customer>();
     ArrayList<Employee> employees = new ArrayList<Employee>();
     ArrayList<Order> orders = new ArrayList<Order>();
-    boolean Buy;
-
-    public  boolean isBuy() {
-        return Buy;
-    }
-    public void setBuy(boolean buy) {
-        Buy = buy;
-    }
 
     //получить покупателя по логину и паролю
     public  Customer getCustomerByLogPas(String log, String pass) {
@@ -62,12 +54,29 @@ public class Data {
         return true;
     }
 
+    //добавить нового пользователя
+    public String addCustomers(long id,String name, String pass,int age) {
+        for (Customer cusLP : customers){
+            if ((cusLP.getName().equals(name))){
+                return "Такое имя уже существует";
+            }
+        }
+        customers.add(new Customer(id,name,pass, age));
+        return "Регистрация прошла успешно";
+    }
+
+    //вернуть количество пользователей в БД
+    public int getSizeCustomers()
+    {
+        return customers.size();
+    }
+
     //получить гитары
     public  ArrayList<Guitar> getGuitars() {
         return guitars;
     }
 
-    //получить гитару по ее номеру
+    //получить гитару по ее id
     public  Guitar getGuitarById(long id) {
         for (Guitar guitar : guitars){
             if (guitar.getId() == id){
@@ -82,7 +91,7 @@ public class Data {
         this.orders = orders;
     }
 
-    //получить заказ по его номеру
+    //получить заказ по его id
     public  Order getOrderById(long id) {
         for (Order or : orders){
             if (or.getId() == id){

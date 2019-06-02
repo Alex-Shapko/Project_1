@@ -30,9 +30,8 @@ public class HelloServlet extends HttpServlet {
         List list = context.getBean(List.class);
         req.setAttribute("list", list);
 
-        Data.getInstance().setBuy(false);
-
         Long id =  (Long) req.getSession().getAttribute("idUser");
+
         if (id == null) {
             resp.sendRedirect("login");
         }
@@ -47,7 +46,6 @@ public class HelloServlet extends HttpServlet {
                 long id2 = id;
                 or.add(new Order(1,id2,12,KorzAdd));
                 Data.getInstance().setOrders(or);
-                Data.getInstance().setBuy(true);
                 req.getRequestDispatcher("/index.jsp").forward(req, resp);
             }
         }
@@ -55,15 +53,11 @@ public class HelloServlet extends HttpServlet {
 
    @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        //resp.setContentType("text/html");
-        //req.setAttribute("todo", "10");
-
         List list = context.getBean(List.class);
         req.setAttribute("list", list);
 
         ArrayList<Order> or = new ArrayList<Order>();
-
-       List<Long> Korz = new ArrayList<Long>();
+        List<Long> Korz = new ArrayList<Long>();
 
         if (req.getSession().getAttribute("ArrayIdGtr2") == null){
             List<Long> KorzPust = new ArrayList<Long>();
@@ -84,9 +78,7 @@ public class HelloServlet extends HttpServlet {
         long id2 = id;
 
         or.add(new Order(1,id2,12,Korz));
-        //or.add(new Order(1,12,12,new long[]{Long.parseLong(name)}));
         Data.getInstance().setOrders(or);
-        Data.getInstance().setBuy(true);
         req.getRequestDispatcher("/index.jsp").forward(req, resp);
     }
 

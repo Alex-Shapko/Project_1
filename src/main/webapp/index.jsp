@@ -14,12 +14,9 @@
         <%! private int g = 0;%>
         <%! private List<Long> GtrOrd;%>
 
-
         Число обращений к странице: <%= ++x %>
 
         <% String name = (String) request.getSession().getAttribute("name"); %>
-
-
         <c:set var="myName" value="<%=name.toString()%>"/>
         <h2>Пользователь:</h2>
         <h3>${myName}</h3>
@@ -28,8 +25,6 @@
         <%guitarsView = Data.getInstance().getGuitars();%>
         <%g=guitarsView.size();%>
 
-       <%--=Data.getInstance().getGuitarById(1).getName()--%>
-
         <h1>Список гитар:</h1>
         <% if (request.getAttribute("list") == null) {%>
             <% request.setAttribute("list", new ArrayList());%>
@@ -37,13 +32,11 @@
 
         <% ((List)request.getAttribute("list")).clear(); %>
 
-
         <% for (int i=1; i<=g; i++) {%>
         <% ((List)request.getAttribute("list")).add (Data.getInstance().getGuitarById(i)); %>
         <%}%>
 
         <table>
-            <!-- here should go some titles... -->
             <col width="150" valign="top">
             <col width="100" valign="top">
             <col width="100" valign="top">
@@ -91,7 +84,6 @@
 
         <% GtrOrd = Data.getInstance().getOrderByCustomer(id).getGuitars(); %>
         <table>
-            <!-- here should go some titles... -->
             <col width="150" valign="top">
             <col width="100" valign="top">
             <col width="100" valign="top">

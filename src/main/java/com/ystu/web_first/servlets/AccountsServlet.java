@@ -37,6 +37,9 @@ public class AccountsServlet extends HttpServlet {
                 getServletContext().getRequestDispatcher("/index.jsp").forward(req,resp);
             }
             else {
+                if (nameLog != null && pass != null){
+                    req.setAttribute("msgAut","Неверный логин или пароль");
+                }
                 req.getRequestDispatcher("/login.jsp").forward(req, resp);
             }
         }
@@ -44,9 +47,23 @@ public class AccountsServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        //resp.sendRedirect("/hello");
-        resp.setContentType("text/html");
-        //req.setAttribute("todo", "10");
+        String Message;
+        String nameLog = req.getParameter("loginReg");
+        String pass = req.getParameter("passReg");
+        String ageS = req.getParameter("ageReg");
+        long id = Data.getInstance().getSizeCustomers();
+
+        if(nameLog != "" && pass !="" && ageS != ""){
+            id++;
+            int age = (Integer.parseInt(ageS));
+            Message = Data.getInstance().addCustomers(id,nameLog,pass,age);
+            req.setAttribute("msgReg",Message);
+            req.getRequestDispatcher("/login.jsp").forward(req, resp);
+        }
+        else{
+            req.setAttribute("msgReg","Введены не все данные");
+            req.getRequestDispatcher("/login.jsp").forward(req, resp);
+        }
     }
 
 }

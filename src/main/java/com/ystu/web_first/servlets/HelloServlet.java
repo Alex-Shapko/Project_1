@@ -87,7 +87,7 @@ public class HelloServlet extends HttpServlet {
             Korz = KorzAdd;
             }
         }
-        
+
         or.add(new Order(1,id2,12,Korz));
         Data.getInstance().setOrders(or);
         req.getRequestDispatcher("/index.jsp").forward(req, resp);

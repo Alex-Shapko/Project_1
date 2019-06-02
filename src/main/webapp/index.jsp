@@ -14,6 +14,7 @@
         <%! private int g = 0;%>
         <%! private List<Long> GtrOrd;%>
 
+
         Число обращений к странице: <%= ++x %>
 
         <c:set var="myName" value="Alex"/>

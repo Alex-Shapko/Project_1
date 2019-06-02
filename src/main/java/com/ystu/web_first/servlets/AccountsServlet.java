@@ -26,12 +26,18 @@ public class AccountsServlet extends HttpServlet {
         String pass = req.getParameter("pass");
         IdCust = Data.getInstance().getIdCustomerByLogPas(nameLog,pass);
 
-        if (!Data.getInstance().getLogin(nameLog, pass)) {
-            req.getSession().setAttribute("idUser",IdCust);
-            getServletContext().getRequestDispatcher("/index.jsp").forward(req,resp);
+        Long id =  (Long) req.getSession().getAttribute("idUser");
+        if (id != null) {
+            resp.sendRedirect("hello");
         }
         else {
-            req.getRequestDispatcher("/login.jsp").forward(req, resp);
+            if (!Data.getInstance().getLogin(nameLog, pass)) {
+                req.getSession().setAttribute("idUser",IdCust);
+                getServletContext().getRequestDispatcher("/index.jsp").forward(req,resp);
+            }
+            else {
+                req.getRequestDispatcher("/login.jsp").forward(req, resp);
+            }
         }
     }
 

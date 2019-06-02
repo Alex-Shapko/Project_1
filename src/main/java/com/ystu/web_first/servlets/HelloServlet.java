@@ -29,8 +29,16 @@ public class HelloServlet extends HttpServlet {
 
         List list = context.getBean(List.class);
         req.setAttribute("list", list);
+
         Data.getInstance().setBuy(false);
-        req.getRequestDispatcher("/index.jsp").forward(req, resp);
+
+        Long id =  (Long) req.getSession().getAttribute("idUser");
+        if (id == null) {
+            resp.sendRedirect("login");
+        }
+        else {
+            req.getRequestDispatcher("/index.jsp").forward(req, resp);
+        }
     }
 
    @Override

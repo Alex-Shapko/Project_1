@@ -82,7 +82,7 @@
         <%-- if (Data.getInstance().isBuy()==true) { --%>
         <%--=Data.getInstance().getOrderById(1).getCustomer_id()--%>
 
-        <% Long id = (Long) request.getSession().getAttribute("idUser");  %>
+        <% Long id = (Long) request.getSession().getAttribute("idUser"); %>
 
         <% GtrOrd = Data.getInstance().getOrderByCustomer(id).getGuitars(); %>
         <table>
@@ -114,7 +114,6 @@
         <% } %>
         </table>
         <%-- } --%>
-
 
         <c:set var="X1" value="<%=x%>"/>
         <c:if test="${X1 > 10}">

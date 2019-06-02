@@ -12,6 +12,7 @@
         <h2>Авторизация</h2>
 
         <%! private int x = 0;%>
+        <%! private int ig = 0;%>
         Число обращений к странице: <%= ++x %>
 
         <form id=<%=ig%> name="LoginShop" method="get">

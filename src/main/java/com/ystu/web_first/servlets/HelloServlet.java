@@ -37,9 +37,9 @@ public class HelloServlet extends HttpServlet {
             resp.sendRedirect("login");
         }
         else {
-            req.getSession().getAttribute("idUser");
-            //getServletContext().getRequestDispatcher("/index.jsp").forward(req,resp);
-            req.getRequestDispatcher("/index.jsp").forward(req, resp);
+            //req.getSession().setAttribute("idUser",IdCust);
+            getServletContext().getRequestDispatcher("/index.jsp").forward(req,resp);
+            //req.getRequestDispatcher("/index.jsp").forward(req, resp);
         }
     }
 

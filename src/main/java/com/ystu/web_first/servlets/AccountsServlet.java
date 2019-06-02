@@ -33,6 +33,7 @@ public class AccountsServlet extends HttpServlet {
         else {
             if (!Data.getInstance().getLogin(nameLog, pass)) {
                 req.getSession().setAttribute("idUser",IdCust);
+                req.getSession().setAttribute("name",nameLog);
                 getServletContext().getRequestDispatcher("/index.jsp").forward(req,resp);
             }
             else {

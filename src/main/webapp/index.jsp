@@ -17,7 +17,9 @@
 
         Число обращений к странице: <%= ++x %>
 
-        <c:set var="myName" value="Alex"/>
+        <% String name = (String) request.getSession().getAttribute("name"); %>
+
+        <c:set var="myName" value="<%=name.toString()%>"/>
         <h1>${myName}</h1>
 
         <%! ArrayList<Guitar> guitarsView = new ArrayList<Guitar>();%>

@@ -52,7 +52,7 @@ public class Data {
         return 0;
     }
 
-    //правильность логина
+    //проверка на правильность логина и пароля
     public  boolean getLogin(String log, String pass) {
         for (Customer cusLP : customers){
             if ((cusLP.getName().equals(log)) && (cusLP.getPass().equals(pass))){
@@ -67,7 +67,7 @@ public class Data {
         return guitars;
     }
 
-    //получить гитару по номеру
+    //получить гитару по ее номеру
     public  Guitar getGuitarById(long id) {
         for (Guitar guitar : guitars){
             if (guitar.getId() == id){
@@ -77,11 +77,12 @@ public class Data {
         return null;
     }
 
+    //установить заказ
     public  void setOrders(ArrayList<Order> orders) {
         this.orders = orders;
     }
 
-    //получить заказ по номеру
+    //получить заказ по его номеру
     public  Order getOrderById(long id) {
         for (Order or : orders){
             if (or.getId() == id){
@@ -91,7 +92,7 @@ public class Data {
         return new Order();
     }
 
-    //получить заказ по номеру id прользователя
+    //получить заказ по id прользователя
     public  Order getOrderByCustomer(long idCust) {
         for (Order or : orders){
             if (or.getCustomer_id() == idCust){
@@ -113,7 +114,7 @@ public class Data {
         guitars.add(new Guitar(3,"Fender Precision","Red",63000, GuitarType.Bass));
         guitars.add(new Guitar(4,"Takamine","Sunburst",40000, GuitarType.Acoustic));
 
-        orders.add(new Order(3,1,1, Arrays.asList(1l)));
+       // orders.add(new Order(3,1,1, Arrays.asList(1l)));
     }
 
 }

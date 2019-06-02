@@ -31,7 +31,6 @@ public class HelloServlet extends HttpServlet {
         req.setAttribute("list", list);
         Data.getInstance().setBuy(false);
         req.getRequestDispatcher("/index.jsp").forward(req, resp);
-
     }
 
    @Override
@@ -48,14 +47,6 @@ public class HelloServlet extends HttpServlet {
         long id2 = id;
 
         ArrayIdGtr.add(Long.parseLong(name));
-
-//        Long id = (Long) req.getSession().getAttribute("idUser");
-//        if(id != null)
-//        {
-//            req.setAttribute("IdUser", id);
-//        }
-        //Long [] ArrayIdGtrLong = null;
-        //ArrayIdGtrLong=ArrayIdGtr.toArray(new Long [ArrayIdGtr.size()]);
 
         or.add(new Order(1,id2,12,ArrayIdGtr));
         //or.add(new Order(1,12,12,new long[]{Long.parseLong(name)}));

@@ -26,11 +26,11 @@
         Гитара:<%--=Data.getInstance().getGuitarById(1).getName()--%>
 
         <h1>Список гитар:</h1>
-         <% if (request.getAttribute("list") == null) {%>
+        <% if (request.getAttribute("list") == null) {%>
             <% request.setAttribute("list", new ArrayList());%>
-         <%}%>
+        <%}%>
 
-           <% ((List)request.getAttribute("list")).clear(); %>
+        <% ((List)request.getAttribute("list")).clear(); %>
 
 
         <% for (int i=1; i<=g; i++) {%>

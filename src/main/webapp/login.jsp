@@ -18,15 +18,11 @@
 
         Число обращений к странице: <%= ++x %>
 
-
-
         <form id=<%=ig%> name="LoginShop" method="get">
         <p>Логин:<input type="text" name="login" /></p>
         <p>Пароль:<input type="password" name="pass" /></p>
         <p><input type="submit" name="submit" value="Вход" /></p>
         </form>
-
-        <%--=Data.getInstance().getCustomerByLogPas("AlexS", "1234").getId()--%>
 
     </body>
 </html>

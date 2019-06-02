@@ -12,10 +12,6 @@
         <h2>Авторизация</h2>
 
         <%! private int x = 0;%>
-        <%! private int ig = 0;%>
-        <%! private int g = 0;%>
-        <%! private List<Long> GtrOrd;%>
-
         Число обращений к странице: <%= ++x %>
 
         <form id=<%=ig%> name="LoginShop" method="get">

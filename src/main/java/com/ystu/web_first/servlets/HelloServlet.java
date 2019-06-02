@@ -59,7 +59,12 @@ public class HelloServlet extends HttpServlet {
         ArrayList<Order> or = new ArrayList<Order>();
         List<Long> Korz = new ArrayList<Long>();
 
-        if (req.getSession().getAttribute("ArrayIdGtr2") == null){
+        Long id =  (Long) req.getSession().getAttribute("idUser");
+        long id2 = id;
+
+        Korz = Data.getInstance().getOrderByCustomer(id).getGuitars();
+
+        if (req.getSession().getAttribute("ArrayIdGtr2") == null && Korz.size()==0){
             List<Long> KorzPust = new ArrayList<Long>();
             String name = req.getParameter("button");
             KorzPust.add(Long.parseLong(name));
@@ -67,16 +72,22 @@ public class HelloServlet extends HttpServlet {
             Korz = KorzPust;
         }
         else{
+            if (req.getSession().getAttribute("ArrayIdGtr2") == null) {
+                List<Long> KorzAdd=Korz;
+                String name = req.getParameter("button");
+                KorzAdd.add(Long.parseLong(name));
+                req.getSession().setAttribute("ArrayIdGtr2",KorzAdd);
+                Korz = KorzAdd;
+            }
+            else{
             List<Long> KorzAdd=  (List) req.getSession().getAttribute("ArrayIdGtr2");
             String name = req.getParameter("button");
             KorzAdd.add(Long.parseLong(name));
             req.getSession().setAttribute("ArrayIdGtr2",KorzAdd);
             Korz = KorzAdd;
+            }
         }
-
-        Long id =  (Long) req.getSession().getAttribute("idUser");
-        long id2 = id;
-
+        
         or.add(new Order(1,id2,12,Korz));
         Data.getInstance().setOrders(or);
         req.getRequestDispatcher("/index.jsp").forward(req, resp);

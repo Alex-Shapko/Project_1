@@ -79,7 +79,6 @@
         <h1>Корзина:</h1>
         <%-- if (Data.getInstance().isBuy()==true) { --%>
         <%--=Data.getInstance().getOrderById(1).getCustomer_id()--%>
-
         <% Long id = (Long) request.getSession().getAttribute("idUser"); %>
 
         <% GtrOrd = Data.getInstance().getOrderByCustomer(id).getGuitars(); %>

@@ -90,7 +90,8 @@ public class HelloServlet extends HttpServlet {
 
         or.add(new Order(1,id2,12,Korz));
         Data.getInstance().setOrders(or);
-        req.getRequestDispatcher("/index.jsp").forward(req, resp);
+        //req.getRequestDispatcher("/index.jsp").forward(req, resp);
+        resp.sendRedirect("/hello");
     }
 
 }

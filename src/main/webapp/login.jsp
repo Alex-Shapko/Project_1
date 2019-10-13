@@ -41,7 +41,6 @@
             <c:set var="msgRegView" value="<%=messageReg.toString()%>"/>
             <h3>${msgRegView}</h3>
         <%}%>
-
-
+    
     </body>
 </html>
